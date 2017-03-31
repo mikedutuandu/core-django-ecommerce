@@ -11,7 +11,7 @@ from .models import CartItem, Cart
 "cart_token": "12345", 
 "billing_address": 1,
 "shipping_address": 1,
-"checkout_token": "12345",
+"checkout_token": "12345"
 }
 
 """

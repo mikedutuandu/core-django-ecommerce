@@ -23,7 +23,8 @@ class UserCheckout(models.Model):
 
 	def __unicode__(self): #def __str__(self):
 		return self.email
-
+	def __str__(self): #def __str__(self):
+		return self.email
 	@property
 	def get_braintree_id(self,):
 		instance = self

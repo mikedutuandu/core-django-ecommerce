@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from .models import Cart, CartItem, Variation
 from django.http import HttpResponseRedirect, Http404, JsonResponse
+import json
 
 
 class CartUpdateAPIMixin(object):
@@ -44,7 +45,8 @@ class TokenMixin(object):
 	token = None
 	def create_token(self, data_dict):
 		if type(data_dict) == type(dict()):
-			token = base64.b64encode(str(data_dict))
+			data_str = str(data_dict)
+			token = base64.b64encode(data_str.encode('utf-8'))
 			self.token = token
 			return token
 		else:
@@ -56,7 +58,7 @@ class TokenMixin(object):
 			return {}
 		try:
 			token_decoded = base64.b64decode(token)
-			token_dict = ast.literal_eval(token_decoded)
+			token_dict = ast.literal_eval(token_decoded.decode('utf-8'))
 			return token_dict
 		except:
 			return {}
