@@ -1,0 +1,9 @@
+- one to many : self.productimage_set
+- get current absolute url: request.build_absolute_uri
+-{% include "default/products/product_thumbnail.html" with product=product price="True" %}
+-	qs = (products_one | products_two).exclude(id=instance.id).distinct()
+-cart_item, created = CartItem.objects.get_or_create(cart=cart, item=item_instance)
+-	items = models.ManyToManyField(Variation, through=CartItem)
+- self.subtotal = "%.2f" %(subtotal)
+-self.request.user.is_authenticated():
+-add many form: formset
